@@ -5,6 +5,7 @@ import { buscar, deletar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
 
 import Tema from "../../../models/Tema";
+import { RotatingLines } from "react-loader-spinner";
 
 function DeletarTema() {
     
