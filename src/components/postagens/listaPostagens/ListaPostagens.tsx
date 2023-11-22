@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Dna } from 'react-loader-spinner';
 
 import { buscar } from '../../../services/Service';
@@ -17,6 +17,9 @@ function ListaPostagens() {
 
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
+
+    const location = useLocation();
+
 
     async function buscarPostagens() {
         try {
@@ -45,6 +48,8 @@ function ListaPostagens() {
         buscarPostagens()
     }, [postagens.length])
 
+    const rotaPerfil = location.pathname === '/perfil';
+
     return (
         <>
             {postagens.length === 0 && (
@@ -61,9 +66,24 @@ function ListaPostagens() {
             <div className='container mx-auto my-4 
         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 
-                {postagens.map((postagem) => (
-                    <CardPostagens key={postagem.id} post={postagem} />
-                ))}
+                {rotaPerfil ? (
+                    <div>
+                        {postagens.map((postagem) => (
+                            postagem.usuario?.id === usuario.id ? (
+                                <CardPostagens key={postagem.id} post={postagem} />
+                            ) : null
+                        ))}
+                    </div>
+                ) : (
+                    <div >
+
+                        {postagens.map((postagem) => (
+                            <CardPostagens key={postagem.id} post={postagem} />
+                        ))}
+
+                    </div>
+                )
+                }
 
             </div>
         </>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { AuthContext } from '../../contexts/AuthContext'
 import { toastAlerta } from '../../utils/toastAlerta'
+import ListaPostagens from '../../components/postagens/listaPostagens/ListaPostagens'
 
 function Perfil() {
 
@@ -35,6 +36,8 @@ function Perfil() {
                 <p>Nome: {usuario.nome} </p>
                 <p>Email: {usuario.usuario}</p>
             </div>
+                <ListaPostagens/>
+
 
         </div>
     )
