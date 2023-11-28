@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Dna } from 'react-loader-spinner';
 
 import { buscar } from '../../../services/Service';
@@ -7,6 +7,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 
 import Postagem from '../../../models/Postagem';
 import CardPostagens from '../cardPostagens/CardPostagens';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function ListaPostagens() {
 
@@ -16,6 +17,9 @@ function ListaPostagens() {
 
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
+
+    const location = useLocation();
+
 
     async function buscarPostagens() {
         try {
@@ -27,7 +31,7 @@ function ListaPostagens() {
 
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', "info")
                 handleLogout()
             }
         }
@@ -35,7 +39,7 @@ function ListaPostagens() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            toastAlerta('Você precisa estar logado', "info")
             navigate('/');
         }
     }, [token])
@@ -43,6 +47,8 @@ function ListaPostagens() {
     useEffect(() => {
         buscarPostagens()
     }, [postagens.length])
+
+    const rotaPerfil = location.pathname === '/perfil';
 
     return (
         <>
@@ -60,9 +66,24 @@ function ListaPostagens() {
             <div className='container mx-auto my-4 
         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 
-                {postagens.map((postagem) => (
-                    <CardPostagens key={postagem.id} post={postagem} />
-                ))}
+                {rotaPerfil ? (
+                    <div>
+                        {postagens.map((postagem) => (
+                            postagem.usuario?.id === usuario.id ? (
+                                <CardPostagens key={postagem.id} post={postagem} />
+                            ) : null
+                        ))}
+                    </div>
+                ) : (
+                    <div >
+
+                        {postagens.map((postagem) => (
+                            <CardPostagens key={postagem.id} post={postagem} />
+                        ))}
+
+                    </div>
+                )
+                }
 
             </div>
         </>
