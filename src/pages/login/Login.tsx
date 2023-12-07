@@ -35,15 +35,15 @@ function Login() {
     return (
         <>
             
-            <div className=" min-h-screen flex justify-center  py- px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"
+            <div className="relative min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"
                 style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1525302220185-c387a117886e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);' }}>
                 <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
-                <div className="max-w-md w-full  px-10 pb-5 bg-white rounded-xl z-10">
+                <div className="max-w-md w-full space-y-8 p-10 bg-white rounded-xl z-10">
                     <div className="text-center">
                         <h2 className="mt-6 text-3xl font-bold text-gray-900">
-                           Iniciar Sessão
+                            Welcom Back!
                         </h2>
-                        <p className="mt-2 my-2 text-sm text-gray-600">Por favor, faça login na sua conta.</p>
+                        <p className="mt-2 text-sm text-gray-600">Please sign in to your account</p>
                     </div>
                     <div className="flex flex-row justify-center items-center space-x-3">
                         <span className="w-11 h-11 items-center justify-center inline-flex rounded-full font-bold text-lg  text-white  bg-blue-900 hover:shadow-lg cursor-pointer transition ease-in duration-300"><img className="w-4 h-4" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0xNS45OTcgMy45ODVoMi4xOTF2LTMuODE2Yy0uMzc4LS4wNTItMS42NzgtLjE2OS0zLjE5Mi0uMTY5LTMuMTU5IDAtNS4zMjMgMS45ODctNS4zMjMgNS42Mzl2My4zNjFoLTMuNDg2djQuMjY2aDMuNDg2djEwLjczNGg0LjI3NHYtMTAuNzMzaDMuMzQ1bC41MzEtNC4yNjZoLTMuODc3di0yLjkzOWMuMDAxLTEuMjMzLjMzMy0yLjA3NyAyLjA1MS0yLjA3N3oiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+"/></span>
@@ -52,7 +52,7 @@ function Login() {
                     </div>
                     <div className="flex items-center justify-center space-x-2">
                         <span className="h-px w-16 bg-gray-300"></span>
-                        <span className="text-gray-500 font-normal">OU</span>
+                        <span className="text-gray-500 font-normal">OR</span>
                         <span className="h-px w-16 bg-gray-300"></span>
                     </div>
                     <form className="mt-8 space-y-6" action="#" method="POST">
@@ -65,38 +65,36 @@ function Login() {
                             </svg>
                             </div>
                             <label className="text-sm font-bold text-gray-700 tracking-wide">Email</label>
-                            <input className=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Digite seu email" value={usuarioLogin.usuario}
-                            onChange={(e: ChangeEvent<HTMLInputElement>)=> atualizarEstado(e)} />
+                            <input className=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="mail@gmail.com" value="mail@gmail.com" />
                         </div>
                         <div className="mt-8 content-center">
                             <label className="text-sm font-bold text-gray-700 tracking-wide">
-                                Senha
+                                Password
                             </label>
-                            <input className="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Digite sua senha" value={usuarioLogin.senha} 
-                            onChange={(e: ChangeEvent<HTMLInputElement>)=> atualizarEstado(e)}/>
+                            <input className="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password" value="*****|" />
                         </div>
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <input id="remember_me" name="remember_me" type="checkbox" className="h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded" />
                                 <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
-                                    Lembre-me
+                                    Remember me
                                 </label>
                             </div>
                             <div className="text-sm">
-                                <a href="#" className="font-medium text-indigo-500 hover:text-indigo-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">
-                                    Esqueceu sua senha?
+                                <a href="#" className="font-medium text-indigo-500 hover:text-indigo-500">
+                                    Forgot your password?
                                 </a>
                             </div>
                         </div>
                         <div>
                             <button type="submit" className="w-full flex justify-center bg-indigo-500 text-gray-100 p-4  rounded-full tracking-wide
                                 font-semibold  focus:outline-none focus:shadow-outline hover:bg-indigo-600 shadow-lg cursor-pointer transition ease-in duration-300">
-                                Login
+                                Sign in
                             </button>
                         </div>
-                        <p className="flex items-center justify-center  text-center text-md text-gray-500">
-                            <span>Não tem uma conta? </span>
-                            <a href="#" className="text-indigo-500 ml-2 hover:text-indigo-500 no-underline hover:underline cursor-pointer transition ease-in duration-300"> <Link to={'/cadastro'}>Cadastre-se</Link> </a>
+                        <p className="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
+                            <span>Don't have an account?</span>
+                            <a href="#" className="text-indigo-500 hover:text-indigo-500no-underline hover:underline cursor-pointer transition ease-in duration-300">Sign up</a>
                         </p>
                     </form>
                 </div>
