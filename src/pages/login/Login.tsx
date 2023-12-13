@@ -40,8 +40,7 @@ function Login() {
 
     return (
         <>
-            <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8 bg-indigo-800 bg-no-repeat bg-cover relative "
-                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1525302220185-c387a117886e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);' }}>
+            <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8 bg-indigo-800 bg-no-repeat bg-cover relative ">
                 <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
                 <div className="max-w-md w-full  px-10 pb-2 bg-white rounded-xl z-10">
                     <div className="text-center">

@@ -67,10 +67,12 @@ function Cadastro() {
     }
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
-                <div className="fundoCadastro hidden lg:block"></div>
+           <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8 bg-indigo-800 bg-no-repeat bg-cover relative ">
+                <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
+                <div className="max-w-md w-full  px-10 pb-2 bg-white rounded-xl z-10">
+                
                 <form
-                    className='flex justify-center items-center flex-col w-2/3 gap-3'
+                    className='flex justify-center items-center flex-col w-full gap-3'
                     onSubmit={cadastrarNovoUsuario}>
                     <h2 className='text-slate-900 text-5xl'>Cadastrar</h2>
                     <div className="flex flex-col w-full">
@@ -154,6 +156,7 @@ function Cadastro() {
                         </button>
                     </div>
                 </form>
+            </div>
             </div>
         </>
     )
