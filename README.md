@@ -2,7 +2,7 @@
 Blog Pessoal é um projeto individual realizado na Generation Brasil. Criação do Front-end de uma rede social utilizando o React com TypeScript.
 
 ### Você encontrará:
-- Yanr.
+- Yarn.
 - Routes.
 - TailWindCSS.
 - Conexão com Back-end utilizando Axios.
