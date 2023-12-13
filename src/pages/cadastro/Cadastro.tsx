@@ -74,85 +74,94 @@ function Cadastro() {
                 <form
                     className='flex justify-center items-center flex-col w-full gap-3'
                     onSubmit={cadastrarNovoUsuario}>
-                    <h2 className='text-slate-900 text-5xl'>Cadastrar</h2>
+                    <h2 className="mt-2 mb-2 text-5xl font-bold text-gray-900">Cadastrar</h2>
+                    <div className="flex items-center justify-center space-x-2">
+                        <span className="h-px w-16 bg-gray-300"></span>
+                        <span className="h-px w-16 bg-gray-300"></span>
+                        <span className="h-px w-16 bg-gray-300"></span>
+                    </div>
                     <div className="flex flex-col w-full">
-                        <label htmlFor="nome">Nome</label>
+                    <label className="text-sm font-bold text-gray-700 tracking-wide">Nome</label>
                         <input
                             type="text"
                             id="nome"
                             name="nome"
-                            placeholder="Nome"
-                            className="border-2 border-slate-700 rounded p-2"
+                            placeholder="Digite seu nome"
+                            className=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                             value={usuario.nome}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
                     <div className="flex flex-col w-full">
-                        <label htmlFor="usuario">Usuario</label>
+                        <label className="text-sm font-bold text-gray-700 tracking-wide">E-mail</label>
                         <input
                             type="text"
                             id="usuario"
                             name="usuario"
-                            placeholder="Usuario"
-                            className="border-2 border-slate-700 rounded p-2"
+                            placeholder="Digite seu E-mail"
+                            className=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                             value={usuario.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
                     <div className="flex flex-col w-full">
-                        <label htmlFor="foto">Foto</label>
+                        <label className="text-sm font-bold text-gray-700 tracking-wide">Foto</label>
                         <input
                             type="text"
                             id="foto"
                             name="foto"
-                            placeholder="Foto"
-                            className="border-2 border-slate-700 rounded p-2"
+                            placeholder="Cole a URL de uma foto"
+                            className=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                             value={usuario.foto}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
                     <div className="flex flex-col w-full">
-                        <label htmlFor="senha">Senha</label>
+                        <label className="text-sm font-bold text-gray-700 tracking-wide">Senha</label>
                         <input
                             type="password"
                             id="senha"
                             name="senha"
-                            placeholder="Senha"
-                            className="border-2 border-slate-700 rounded p-2"
+                            placeholder="Digite sua senha"
+                            className=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                             value={usuario.senha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
                     <div className="flex flex-col w-full">
-                        <label htmlFor="confirmarSenha">Confirmar Senha</label>
+                        <label className="text-sm font-bold text-gray-700 tracking-wide">Confirmar Senha</label>
                         <input
                             type="password"
                             id="confirmarSenha"
                             name="confirmarSenha"
-                            placeholder="Confirmar Senha"
-                            className="border-2 border-slate-700 rounded p-2"
+                            placeholder="Confirme sua senha"
+                            className=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                             value={confirmaSenha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
                         />
                     </div>
+                    
                     <div className="flex justify-around w-full gap-8">
                         <button
-                            className='rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2'
+                             className="w-full flex justify-center bg-red-500 text-gray-100 p-4  rounded-full tracking-wide
+                             font-semibold  focus:outline-none focus:shadow-outline hover:bg-red-600 shadow-lg cursor-pointer transition ease-in duration-300"
+                            
                             onClick={retornar}>
                             Cancelar
                         </button>
                         <button
-                            className='rounded text-white bg-indigo-400 hover:bg-indigo-900 w-1/2 
-                                       py-2 flex justify-center'
-                            type='submit'>
-                            {isLoading ? <RotatingLines
-                                strokeColor="white"
-                                strokeWidth="5"
-                                animationDuration="0.75"
-                                width="24"
-                                visible={true}
-                            /> :
-                                <span>Cadastrar</span>}
+                                type="submit"
+                                className="w-full flex justify-center bg-indigo-500 text-gray-100 p-4  rounded-full tracking-wide
+                                font-semibold  focus:outline-none focus:shadow-outline hover:bg-indigo-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                                {isLoading ? <RotatingLines
+                                    strokeColor="white"
+                                    strokeWidth="5"
+                                    animationDuration="0.75"
+                                    width="24"
+                                    visible={true}
+                                /> :
+
+                                    <span>Cadastrar</span>}
                         </button>
                     </div>
                 </form>
