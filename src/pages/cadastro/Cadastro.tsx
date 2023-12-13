@@ -7,6 +7,7 @@ import Usuario from '../../models/Usuario'
 
 import './Cadastro.css'
 import { toastAlerta } from '../../utils/toastAlerta'
+import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri'
 
 function Cadastro() {
 
@@ -14,6 +15,11 @@ function Cadastro() {
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [confirmaSenha, setConfirmaSenha] = useState<string>("")
+    const [mostrarSenha, setMostrarSenha] = useState<boolean>(false)
+
+    const handleToggleSenha = () => {
+        setMostrarSenha(!mostrarSenha);
+    }
 
     const [usuario, setUsuario] = useState<Usuario>({
         id: 0,
@@ -65,6 +71,20 @@ function Cadastro() {
 
         setIsLoading(false)
     }
+
+    function validaSenha() {
+        const inputSenha = document.querySelector('#senha') as HTMLInputElement;
+    
+        if (inputSenha.value.length >= 8) {
+            inputSenha.style.borderColor = 'rgb(21, 128, 61)';
+        } else {
+            inputSenha.style.borderColor = 'rgb(225, 29, 72)';
+           
+        }
+    }
+
+
+
     return (
         <>
            <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8 bg-indigo-800 bg-no-repeat bg-cover relative ">
@@ -116,17 +136,26 @@ function Cadastro() {
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
-                    <div className="flex flex-col w-full">
+                    <div className="content-center relative w-full min-w-[200px]">
                         <label className="text-sm font-bold text-gray-700 tracking-wide">Senha</label>
                         <input
-                            type="password"
+                            type={mostrarSenha? 'text' : 'password'}
                             id="senha"
                             name="senha"
                             placeholder="Digite sua senha"
+                            title={usuario.senha.length < 8 ? 'A senha deve ter pelo menos 8 caracteres.' : ''}
                             className=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                             value={usuario.senha}
+                            onKeyUp={validaSenha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
+                        <button
+                                type="button"
+                                className="absolute right-3 mt-3 transform "
+                                onClick={handleToggleSenha}
+                            >
+                                {mostrarSenha ? <RiEyeLine /> : <RiEyeOffLine />}
+                            </button>
                     </div>
                     <div className="flex flex-col w-full">
                         <label className="text-sm font-bold text-gray-700 tracking-wide">Confirmar Senha</label>
